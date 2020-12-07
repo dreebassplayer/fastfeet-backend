@@ -28,6 +28,11 @@ public class DeliveryServiceImpl implements DeliveryService {
         var user = userService.findById(requestDTO.getUserId());
         userValidation(user);
         var delivery = new Delivery();
+        setParams(requestDTO, user, delivery);
+        deliveryRepository.save(delivery);
+    }
+
+    private void setParams(DeliveryRequestDTO requestDTO, User user, Delivery delivery) {
         delivery.setUser(user);
         delivery.setAddress(requestDTO.getAddress());
         delivery.setCity(requestDTO.getCity());
@@ -37,9 +42,7 @@ public class DeliveryServiceImpl implements DeliveryService {
         delivery.setState(requestDTO.getState());
         delivery.setCreatedAt(LocalDateTime.now(ZoneOffset.UTC));
         delivery.setSignature(requestDTO.getSignature());
-        deliveryRepository.save(delivery);
     }
-
 
 
     private void userValidation(User user) {
