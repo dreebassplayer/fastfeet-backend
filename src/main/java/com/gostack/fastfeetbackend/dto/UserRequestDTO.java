@@ -24,7 +24,7 @@ public class UserRequestDTO {
     @NotBlank
     private String cpf;
 
-    @NotBlank
+
     private String password;
 
     @NotNull

@@ -21,4 +21,11 @@ public class UserController {
         userService.save(dto);
     }
 
+    @PutMapping(value = "/{userId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@PathVariable Long userId, @RequestBody @Valid UserRequestDTO dto){
+        userService.update(userId,dto);
+    }
+
+
 }
