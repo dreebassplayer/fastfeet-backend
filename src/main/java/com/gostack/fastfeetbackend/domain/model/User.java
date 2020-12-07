@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "tb_users", schema = "fastfet")
+@Table(name = "tb_users", schema = "fastfeet")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

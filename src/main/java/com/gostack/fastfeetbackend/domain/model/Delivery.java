@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(name = "tb_deliveries", schema = "fastfet")
+@Table(name = "tb_deliveries", schema = "fastfeet")
 public class Delivery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Delivery {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "DEL_USR_ID", referencedColumnName = "USR_ID")
     private User user;
 

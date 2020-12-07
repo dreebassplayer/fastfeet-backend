@@ -31,10 +31,12 @@ public class UserServiceImpl implements UserService {
         setParams(requestDTO, userCurrent);
     }
 
-    private User findById(Long userId) {
+    @Override
+    public User findById(Long userId) {
         return userRepository.findById(userId).orElseThrow(()->
                 new ObjectNotFoundException("Usuário não encontrado para o id: "+userId));
     }
+
 
     private void setParams(UserRequestDTO requestDTO, User user) {
         user.setName(requestDTO.getName());
