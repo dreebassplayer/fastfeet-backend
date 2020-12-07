@@ -30,7 +30,7 @@ public class User {
     private String cpf;
 
     @Column(name = "USR_PASSWORD")
-    private String password;
+    private byte[] password;
 
     @Column(name = "USR_DELIVERY_MAN")
     private Boolean deliveryMan;

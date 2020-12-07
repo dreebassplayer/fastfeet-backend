@@ -1,9 +1,7 @@
 package com.gostack.fastfeetbackend.domain.service;
 
-import com.gostack.fastfeetbackend.domain.model.User;
-
-import java.util.List;
+import com.gostack.fastfeetbackend.dto.UserRequestDTO;
 
 public interface UserService {
-    List<User> findAll();
+    void save(UserRequestDTO requestDTO);
 }

@@ -1,15 +1,12 @@
 package com.gostack.fastfeetbackend.domain.controller;
 
-import com.gostack.fastfeetbackend.domain.model.User;
 import com.gostack.fastfeetbackend.domain.service.UserService;
+import com.gostack.fastfeetbackend.dto.UserRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
 
 @RestController
@@ -18,10 +15,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    public List<User> findAll(){
-        return userService.findAll();
+    @PostMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void save(@RequestBody @Valid UserRequestDTO dto){
+        userService.save(dto);
     }
 
 }
