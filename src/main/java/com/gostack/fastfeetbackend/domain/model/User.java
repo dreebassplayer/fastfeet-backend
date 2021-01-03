@@ -1,5 +1,6 @@
 package com.gostack.fastfeetbackend.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class User {
     private String cpf;
 
     @Column(name = "USR_PASSWORD")
+    @JsonIgnore
     private byte[] password;
 
     @Column(name = "USR_DELIVERY_MAN")

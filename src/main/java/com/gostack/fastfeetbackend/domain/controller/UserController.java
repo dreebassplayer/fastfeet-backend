@@ -1,5 +1,6 @@
 package com.gostack.fastfeetbackend.domain.controller;
 
+import com.gostack.fastfeetbackend.domain.model.User;
 import com.gostack.fastfeetbackend.domain.service.UserService;
 import com.gostack.fastfeetbackend.dto.UserRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,16 @@ public class UserController {
         userService.update(userId,dto);
     }
 
+    @GetMapping(value = "/{userId}")
+    @ResponseStatus(HttpStatus.OK)
+    public User findById(@PathVariable Long userId){
+        return userService.findById(userId);
+    }
+
+    @DeleteMapping(value = "/{userId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long userId){
+        userService.delete(userId);
+    }
 
 }

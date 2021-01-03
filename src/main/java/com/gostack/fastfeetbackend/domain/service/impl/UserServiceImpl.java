@@ -37,6 +37,12 @@ public class UserServiceImpl implements UserService {
                 new ObjectNotFoundException("Usuário não encontrado para o id: "+userId));
     }
 
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id) {
+        userRepository.delete(findById(id));
+    }
+
 
     private void setParams(UserRequestDTO requestDTO, User user) {
         user.setName(requestDTO.getName());
