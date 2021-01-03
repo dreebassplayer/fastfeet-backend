@@ -4,10 +4,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 @Entity
 @Getter
@@ -18,7 +21,7 @@ import java.time.LocalDateTime;
 public class Delivery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "TB_DEL_ID")
+    @Column(name = "DEL_ID")
     @EqualsAndHashCode.Include
     private Long id;
 
@@ -57,9 +60,11 @@ public class Delivery {
     private LocalDate endDate;
 
     @Column(name = "DEL_CREATED_AT")
+    @CreationTimestamp
     private LocalDateTime createdAt;
 
     @Column(name = "DEL_UPDATE_AT")
+    @UpdateTimestamp
     private LocalDateTime updateAt;
 
 
